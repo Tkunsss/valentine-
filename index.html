@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>for my baby 💖</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fasthand&family=Science+Gothic:wght@100..900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: "Fasthand", cursive, "Science Gothic", sans-serif;
+      background: linear-gradient(180deg, #fdeff2, #fbc8d4);
+      color: #333;
+      text-align: center;
+    }
+    .screen { min-height: 100vh; display: none; flex-direction: column; justify-content: center; align-items: center; padding: 28px;}
+    .active { display: flex; }
+    h1 { font-size: 2rem; margin-bottom: 1rem; }
+    p { font-size: 1.15rem; line-height: 1.6; max-width: 420px; }
+    button {
+      font-family: "Fasthand", cursive, "Science Gothic", sans-serif;
+      margin-top: 24px; padding: 14px 28px; font-size: 1.2rem;
+      border: none; border-radius: 14px; background: #ff5c8a; color: white; cursor: pointer; width: 80%; max-width: 300px;
+    }
+    .soft { opacity: 0.85; font-size: 1rem; margin-top: 12px; }
+    .wink { font-size: 2rem; }
+    .bar { width: 80%; height: 20px; background: #eee; margin: 20px auto; border-radius: 10px; overflow: hidden; }
+    .bar-fill { height: 100%; width: 0%; background: pink; transition: width 0.3s; }
+  </style>
+</head>
+<body>
+
+<!-- Screen 0: Click to start -->
+<div class="screen active" id="s0"> 
+  <h1>💖 ចុចបន្តដើម្បីគណនាក្ដីស្រឡាញ់របស់បងចំពោះអូន</h1>
+  <p class="soft">ប្រយ័ត្ន: លទ្ធផងហ្នឹងធ្វើឲ្យអូនញញឹមដូចពេលជិះម៉ូតូជាមួយបង😜😜😜</p>
+  <button onclick="startLoading()">បន្តរ</button>
+</div>
+
+<!-- Screen 1: Loading -->
+<div class="screen" id="s1">
+  <h1>💘 គិតសិន…</h1>
+  <p>កំពុងគណនាក្ដីស្រលាញ់បងចំពោះអូន🫶🫶🫶…</p>
+  <div class="bar">
+    <div class="bar-fill" id="progress"></div>
+  </div>
+  <p class="soft">ប្រយ័ត្ត: ញញឹមតែឯងប្រាប់ហើយ😜😜😜 💖</p>
+</div>
+
+<!-- Screen 2: Result -->
+<div class="screen" id="s2">
+  <h1>✅ គណនាជោគជ័យ🤔</h1>
+  <p>📍 ទីតាំង: ក្នុងបេះដូងបង♥️♥️♥️</p>
+  <p>🔋 ក្ដីស្រឡាញ់: ឥតគណនា♾️ 😜💖</p>
+  <img src="love.jpg" alt="រូបនៃក្ដីស្រឡាញ់" style="width: 80%; max-width: 300px; border-radius: 14px; margin-top: 20px;">
+  <button class="yes" onclick="go(3)">បន្តរ</button>
+</div>
+
+<!-- Screen 3: Almost Official -->
+<div class="screen" id="s3">
+  <h1>Ummmm</h1>
+  <p>
+    បងគិតថាអូនអត់ទាន់យល់ព្រមថា អូនយកបងធ្វើជាអ្នកដែលអាចឈរជិតអូនបានទេ…<br>
+    តែបងសង្ឃឹមថាអូនហ្នឹងយល់ព្រមទទួលក្តីស្រឡាញ់របស់បងហើយ…<br>
+    បងសង្ឃឹមថាអូនយល់ព្រមយកបងធ្វើជាអ្នកដែលអាចមើលថែអូន ជាអ្នកដែលនៅពីក្រោយអូនគ្រប់នាទី ជាសង្សា...♥️<br>
+  </p>
+  <p class="wink">😉</p>
+  <button onclick="go(4)">បន្តរ</button>
+</div>
+
+<!-- Screen 4: Valentine Question -->
+<div class="screen" id="s4">
+  <h1>Will you be my Valentine?</h1>
+  <button onclick="yes()">Yes ❤️</button>
+  <button onclick="maybe()">No 🥲</button>
+  <p class="soft">ស្រឡាញ់បងទៅហីបងមានបេះដូងខ្យូតហាណា😭😭😭</p>
+</div>
+
+<!-- Screen 5: Heartfelt Response -->
+<div class="screen" id="s5">
+  <h1>❤️</h1>
+  <p>
+    អគុណអូន ដែលយល់ព្រមទទួលយកក្តីស្រឡាញ់ដ៏ខ្ជីខ្ជូតរបស់បង😭😭😭<br>
+    បងសន្យាថាបងនឹងមើលថែអូនឲ្យអស់ពីចិត្ត ហើយបងនឹងតែងតែគាំទ្រអូនគ្រប់អ្វីដែលអូនធ្វើ ហើយបងនឹងតែងតែធ្វើជាអ្នកដែលនៅពីក្រោយអូនគ្រប់ពេលវេលា...♥️<br>
+  </p>
+</div>
+
+<!-- EmailJS CDN -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+<script>
+  // Initialize EmailJS
+  emailjs.init("9WJAX0iOKSRtBcGwQ"); // Your public key
+
+  // Screen navigation
+  function go(n){
+    document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+    document.getElementById('s'+n).classList.add('active');
+  }
+
+  // Loading animation
+  function startLoading(duration = 8000){
+    go(1);
+    const progress = document.getElementById('progress');
+    progress.style.width = "0%";
+    let start = null;
+    function step(timestamp){
+      if(!start) start = timestamp;
+      const elapsed = timestamp - start;
+      const percent = Math.min((elapsed/duration)*100,100);
+      progress.style.width = percent + "%";
+      if(elapsed < duration){
+        requestAnimationFrame(step);
+      } else {
+        go(2);
+      }
+    }
+    requestAnimationFrame(step);
+  }
+
+  // Yes button: send email
+  function yes(){
+    if(navigator.vibrate) navigator.vibrate(200);
+    go(5);
+
+    emailjs.send("i88qw97","template_9gmdx9d",{
+      answer: "Yes ❤️",
+      timestamp: new Date().toLocaleString(),
+      message: "She said Yes! 💖"
+    }).then(r => console.log("Email sent!", r))
+      .catch(e => console.error("Email failed:", e));
+  }
+
+  // No button: send email
+  function maybe(){
+    alert("ស្រឡាញ់បងទៅបងសុំអង្វរ😭🙏🙏🙏💖");
+
+    emailjs.send("i88qw97","template_9gmdx9d",{
+      answer: "No 🥲",
+      timestamp: new Date().toLocaleString(),
+      message: "She said No 🥲"
+    }).then(r => console.log("Email sent!", r))
+      .catch(e => console.error("Email failed:", e));
+  }
+</script>
+</body>
+</html>
